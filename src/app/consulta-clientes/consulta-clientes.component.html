@@ -1,0 +1,42 @@
+<div class="table-responsive">
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>Nome do cliente</th>
+                <th class="text-center">Email</th>
+                <th class="text-center">CPF</th>
+                <th class="text-center">Data de Nascimento</th>
+                <th>Endereço</th>
+                <th>Operações</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let c of clientes">
+                <td>{{c.nome}}</td>
+                <td>{{c.email}}</td>
+                <td class="text-center">{{c.cpf.slice(0, 3) + '.' + c.cpf.slice(3, 6) + '.' + c.cpf.slice(6, 9) + '-' + c.cpf.slice(9)}}</td>
+                <td class="text-center">{{c.dataNascimento | date: 'dd/MM/yyyy'}}</td>
+                <td>
+                    <button class="btn btn-outline-primary btn-sm ms-2">
+                        Exibir
+                    </button>
+                </td>
+                <td>
+                    <button class="btn btn-outline-primary btn-sm">
+                        Editar
+                    </button>
+                    <button class="btn btn-outline-danger btn-sm ms-2">
+                        Excluir
+                    </button>
+                </td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="5">
+                    Quantidade de clientes: {{clientes.length}}
+                </td>
+            </tr>
+        </tfoot>
+    </table>
+</div>
