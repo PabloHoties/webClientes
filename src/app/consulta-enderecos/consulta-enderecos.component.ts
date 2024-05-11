@@ -21,53 +21,6 @@ export class ConsultaEnderecosComponent {
     private activatedRoute: ActivatedRoute
   ) { }
 
-  form = new FormGroup({
-    idCliente: new FormControl(''),
-    nome: new FormControl('', [
-      Validators.required, Validators.minLength(8),
-      Validators.maxLength(100)
-    ]),
-    email: new FormControl('', [
-      Validators.required, Validators.email
-    ]),
-    cpf: new FormControl('', [
-      Validators.required, Validators.pattern(/^[0-9]{11}$/)
-    ]),
-    dataNascimento: new FormControl('', [
-      Validators.required
-    ]),
-    idEndereco: new FormControl(''),
-    logradouro: new FormControl('', [
-      Validators.required, Validators.minLength(10),
-      Validators.maxLength(100)
-    ]),
-    complemento: new FormControl('', [
-      Validators.required, Validators.minLength(5),
-      Validators.maxLength(25)
-    ]),
-    numero: new FormControl('', [
-      Validators.required, Validators.pattern(/^[0-9]{1,5}$/)
-    ]),
-    bairro: new FormControl('', [
-      Validators.required, Validators.minLength(3),
-      Validators.maxLength(25)
-    ]),
-    cidade: new FormControl('', [
-      Validators.required, Validators.minLength(3),
-      Validators.maxLength(25)
-    ]),
-    uf: new FormControl('', [
-      Validators.required
-    ]),
-    cep: new FormControl('', [
-      Validators.required, Validators.pattern(/^[0-9]{5}-[0-9]{3}$/)
-    ]),
-  })
-
-  get f() {
-    return this.form.controls;
-  }
-
   ngOnInit(): void {
     // Captura o ID da rota
     const id = this.activatedRoute.snapshot.paramMap.get('id') as string;
