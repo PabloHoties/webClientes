@@ -4,11 +4,12 @@ import { appConfig } from '../app.config';
 import { config } from '../../environments/environment';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
+import { ConsultaEnderecosComponent } from '../consulta-enderecos/consulta-enderecos.component';
 
 @Component({
   selector: 'app-consulta-clientes',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, ConsultaEnderecosComponent],
   templateUrl: './consulta-clientes.component.html',
   styleUrl: './consulta-clientes.component.css'
 })
@@ -16,6 +17,8 @@ export class ConsultaClientesComponent implements OnInit {
 
   clientes: any[] = [];
   mensagem: string = '';
+  enderecoVisivel: boolean = false;
+
 
   constructor(
     private httpClient: HttpClient,
@@ -55,5 +58,9 @@ export class ConsultaClientesComponent implements OnInit {
 
   onEdit(id: string): void {
     this.router.navigate(['/clientes-edicao', id]);
+  }
+
+  exibirEndereco(id: string) {
+    this.router.navigate(['/consulta-enderecos', id]);
   }
 }

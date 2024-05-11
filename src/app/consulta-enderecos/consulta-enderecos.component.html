@@ -1,0 +1,28 @@
+<div class="table-responsive">
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th class="text-center">Logradouro</th>
+                <th class="text-center">Número</th>
+                <th class="text-center">Complemento</th>
+                <th class="text-center">Bairro</th>
+                <th class="text-center">Cidade</th>
+                <th class="text-center">UF</th>
+                <th class="text-center">CEP</th>
+            </tr>
+        </thead>
+        <tbody>
+            <ng-container *ngIf="cliente && cliente.enderecos && cliente.enderecos.length > 0">
+                <tr *ngFor="let endereco of cliente.enderecos">
+                    <td class="text-center">{{ endereco.logradouro }}</td>
+                    <td class="text-center">{{ endereco.numero }}</td>
+                    <td class="text-center">{{ endereco.complemento }}</td>
+                    <td class="text-center">{{ endereco.bairro }}</td>
+                    <td class="text-center">{{ endereco.cidade }}</td>
+                    <td class="text-center">{{ endereco.uf }}</td>
+                    <td class="text-center">{{ endereco.cep }}</td>
+                </tr>
+            </ng-container>
+        </tbody>
+    </table>
+</div>

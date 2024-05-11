@@ -15,7 +15,7 @@
         <thead>
             <tr>
                 <th>Nome do cliente</th>
-                <th class="text-center">Email</th>
+                <th>Email</th>
                 <th class="text-center">CPF</th>
                 <th class="text-center">Data de Nascimento</th>
                 <th>Endereço</th>
@@ -29,17 +29,15 @@
                 <td class="text-center">{{c.cpf.slice(0, 3) + '.' + c.cpf.slice(3, 6) + '.' + c.cpf.slice(6, 9) + '-' + c.cpf.slice(9)}}</td>
                 <td class="text-center">{{c.dataNascimento | date: 'dd/MM/yyyy'}}</td>
                 <td>
-                    <button class="btn btn-outline-primary btn-sm ms-2">
+                    <button class="btn btn-outline-primary btn-sm ms-2" (click)="exibirEndereco(c.id)">
                         Exibir
                     </button>
                 </td>
                 <td>
-                    <button class="btn btn-outline-primary btn-sm"
-                        (click)="onEdit(c.id)">
+                    <button class="btn btn-outline-primary btn-sm" (click)="onEdit(c.id)">
                         Editar
                     </button>
-                    <button class="btn btn-outline-danger btn-sm ms-2"
-                        (click)="onDelete(c.id)">
+                    <button class="btn btn-outline-danger btn-sm ms-2" (click)="onDelete(c.id)">
                         Excluir
                     </button>
                 </td>
